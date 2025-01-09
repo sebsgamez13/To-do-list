@@ -14,6 +14,7 @@ $mensaje = $_GET['mensaje'] ?? '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="CSS/styles.css">
     <title>Document</title>
 </head>
@@ -22,7 +23,15 @@ $mensaje = $_GET['mensaje'] ?? '';
     <h2>Lista de Tareas</h2>
 
     <?php if ($mensaje): ?>
-        <div class="alert alert-info"><?php echo htmlspecialchars($mensaje); ?></div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                title: 'Mensaje',
+                text: "<?php echo htmlspecialchars($mensaje); ?>",
+                icon: 'info',
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
     <?php endif; ?>
 
     <?php if (count($tareas) > 0): ?>
@@ -48,7 +57,29 @@ $mensaje = $_GET['mensaje'] ?? '';
                             <td><?php echo htmlspecialchars($tarea['estatus']); ?></td>
                             <td>
                                 <!-- Botón de eliminar que redirige a borrar_tarea.php -->
-                                <a href="borrar_tareas.php?id=<?php echo $tarea['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?')">Eliminar</a>
+                                <a href="#" class="btn btn-danger" onclick="confirmarEliminacion(<?php echo $tarea['id']; ?>)">Eliminar</a>
+
+                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                    <script>
+                                    function confirmarEliminacion(id) {
+                                        Swal.fire({
+                                            title: '¿Estás seguro?',
+                                            text: "Esta acción no se puede deshacer.",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#d33',
+                                            cancelButtonColor: '#3085d6',
+                                            confirmButtonText: 'Sí, eliminar',
+                                            cancelButtonText: 'Cancelar'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                // Redirigir a borrar_tareas.php con el ID
+                                                window.location.href = `borrar_tareas.php?id=${id}`;
+                                            }
+                                        });
+                                    }
+                                    </script>
+
                             </td>
 
                             <td>

@@ -12,19 +12,41 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         // Verificar si la eliminación fue exitosa
         if ($stmt->rowCount() > 0) {
-            // Si la tarea se eliminó, redirigir con un mensaje de éxito
-            header("Location: index.php?seccion=lista_tareas&mensaje=Tarea eliminada con éxito.");
+            $mensaje = "Tarea eliminada con éxito.";
+            $tipo = "success";
         } else {
-            // Si no se encontró la tarea, redirigir con un mensaje de error
-            header("Location: index.php?seccion=lista_tareas&mensaje=No se encontró la tarea.");
+            $mensaje = "No se encontró la tarea.";
+            $tipo = "error";
         }
     } catch (Exception $e) {
-        // En caso de error, redirigir con el mensaje de error
-        header("Location: index.php?seccion=lista_tareas&mensaje=Error al eliminar la tarea: " . $e->getMessage());
+        $mensaje = "Error al eliminar la tarea: " . $e->getMessage();
+        $tipo = "error";
     }
 } else {
-    // Si no se proporciona un ID válido, redirigir con mensaje de error
-    header("Location: index.php?seccion=lista_tareas&mensaje=ID de tarea inválido.");
+    $mensaje = "ID de tarea inválido.";
+    $tipo = "error";
 }
+?>
 
-exit();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <script>
+        Swal.fire({
+            icon: '<?php echo $tipo; ?>',
+            title: '<?php echo $mensaje; ?>',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            window.location.href = 'index.php?seccion=lista_tareas';
+        });
+    </script>
+</body>
+</html>

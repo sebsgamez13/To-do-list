@@ -24,11 +24,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Document</title>
+</head>
+<body>
 <div class="container mt-4">
     <h2>Agregar Nueva Tarea</h2>
+    
     <?php if (isset($mensaje)): ?>
-        <div class="alert alert-info"><?php echo $mensaje; ?></div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                title: 'Resultado',
+                text: "<?php echo htmlspecialchars($mensaje); ?>",
+                icon: "<?php echo strpos($mensaje, 'éxito') !== false ? 'success' : 'error'; ?>",
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
     <?php endif; ?>
+    
     <form method="post" action="index.php?seccion=agregar_tarea">
         <div class="form-group">
             <label for="titulo">Nombre de la Tarea</label> <!-- Cambié el id de 'nombre' a 'titulo' -->
@@ -53,3 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit" class="btn btn-primary">Agregar Tarea</button>
     </form>
 </div>
+
+</body>
+</html>
+
