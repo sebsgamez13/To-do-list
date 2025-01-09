@@ -25,7 +25,7 @@ $mensaje = $_GET['mensaje'] ?? '';
                         <th>Prioridad</th>
                         <th>Fecha Límite</th>
                         <th>Estatus</th>
-                        <th>Acciones</th> <!--Se agraga la parte de acciones para el boton de borrar (Pendiente boton editar)--> 
+                        <th>Acciones</th> <!--Se agraga la parte de acciones para el boton de borrar (ya se encuentran los dos corregir estilos de la edicion)--> 
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +40,12 @@ $mensaje = $_GET['mensaje'] ?? '';
                                 <!-- Botón de eliminar que redirige a borrar_tarea.php -->
                                 <a href="borrar_tareas.php?id=<?php echo $tarea['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?')">Eliminar</a>
                             </td>
+
+                            <td>
+                            <!-- Boton para editar la tarea -->
+                            <a href="editar_tareas.php?id=<?php echo $tarea['id']; ?>" class="btn btn-warning">Editar</a>
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
