@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>To do list</title>
+    <title>Gestión de Tareas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
 
             <!-- Contenido principal -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <!--Aqui ira el contenido incluido de otros archivos php -->
+                <!--Aqui ira el contenido incluido de otros archivos php-->
             </main>
         </div>
     </div>
