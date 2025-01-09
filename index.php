@@ -13,12 +13,12 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="index.php?seccion=agregar_tarea">
                                 Agregar Tarea
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="index.php?seccion=ver_tareas">
                                 Ver Tareas
                             </a>
                         </li>
@@ -28,7 +28,14 @@
 
             <!-- Contenido principal -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                <!--Aqui ira el contenido incluido de otros archivos php-->
+                <?php
+                $seccion = $_GET['seccion'] ?? 'agregar_tarea';
+                if ($seccion == 'ver_tareas') {
+                    include 'ver_tareas.php';
+                } else {
+                    include 'agregar_tareas.php';
+                }
+                ?>
             </main>
         </div>
     </div>

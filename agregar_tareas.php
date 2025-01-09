@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $titulo = $_POST['titulo'] ?? '';
     $descripcion = $_POST['descripcion'] ?? '';
     $prioridad = $_POST['prioridad'] ?? '';
-    $fecha_fin = $_POST['fecha_limite'] ?? '';  // Ajustar el nombre del campo aquí
+    $fecha_fin = $_POST['fecha_limite'] ?? '';  
     $estatus = 'pendiente';
 
     // Verificar que todos los campos estén completos
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php endif; ?>
     <form method="post" action="index.php?seccion=agregar_tarea">
         <div class="form-group">
-            <label for="titulo">Nombre de la Tarea</label> <!-- Cambié el id de 'nombre' a 'titulo' -->
+            <label for="titulo">Nombre de la Tarea</label> 
             <input type="text" class="form-control" id="titulo" name="titulo" required>
         </div>
         <div class="form-group">
@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </select>
         </div>
         <div class="form-group">
-            <label for="fecha_limite">Fecha Límite</label> <!-- El nombre del campo sigue siendo 'fecha_limite' -->
-            <input type="date" class="form-control" id="fecha_limite" name="fecha_limite" required>
+            <label for="fecha_fin">Fecha Límite</label> 
+            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
         </div>
         <button type="submit" class="btn btn-primary">Agregar Tarea</button>
     </form>
