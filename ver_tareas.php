@@ -8,6 +8,16 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $mensaje = $_GET['mensaje'] ?? '';
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Document</title>
+</head>
+<body>
 <div class="container mt-4">
     <h2>Lista de Tareas</h2>
 
@@ -52,6 +62,13 @@ $mensaje = $_GET['mensaje'] ?? '';
             </table>
         </div>
     <?php else: ?>
-        <p>No hay tareas registradas.</p>
+        <div class="d-flex flex-column align-items-center justify-content-center" style="height: 50vh;">
+            <p class="text-center font-weight-bold display-4">No hay tareas registradas.</p>
+            <a class="btn btn-primary" href="index.php?seccion=agregar_tarea">Añadir tareas</a>
+        </div>
+        
     <?php endif; ?>
 </div>
+
+</body>
+</html>

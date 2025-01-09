@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Gestión de Tareas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -13,12 +14,12 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php?seccion=agregar_tarea">
+                            <a class="nav nav-link active" href="index.php?seccion=agregar_tarea">
                                 Agregar Tarea
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?seccion=ver_tareas">
+                            <a class="nav-link active" href="index.php?seccion=ver_tareas">
                                 Ver Tareas
                             </a>
                         </li>

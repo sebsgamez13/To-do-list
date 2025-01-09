@@ -1,0 +1,36 @@
+body{
+    background-color: beige;
+}
+
+.sidebar {
+    background-color: beige;
+    padding-top: 20px;
+    height: 30vh;
+}
+
+
+.sidebar ul.nav li.nav-item {
+    margin-bottom: 15px;
+}
+
+.sidebar ul.nav li.nav-item a {
+    display: block;
+    padding: 15px;
+    background-color: #40e0d0; 
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover */
+.sidebar ul.nav li.nav-item a:hover {
+    background-color: #32c0b6; 
+}
+
+/* Opción activa */
+.sidebar ul.nav li.nav-item a.active {
+    background-color: #47dac6;
+}
