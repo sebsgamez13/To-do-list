@@ -1,7 +1,7 @@
 <?php
 require 'conexion.php';
 
-// Consultar las tareas de la tabla 'tareas' y ordenarlas por fecha límite
+// Consultar las tareas de la tabla 'task' y ordenarlas por fecha límite
 $stmt = $pdo->query("SELECT * FROM task ORDER BY fecha_fin ASC");
 $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -17,7 +17,7 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Descripción</th>
                         <th>Prioridad</th>
                         <th>Fecha Límite</th>
-                        <th>Estatus</th> <!-- Columna de estatus agregada -->
+                        <th>Estatus</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -25,9 +25,9 @@ $tareas = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <td><?php echo htmlspecialchars($tarea['titulo']); ?></td>
                             <td><?php echo htmlspecialchars($tarea['descripcion']); ?></td>
-                            <td><?php echo htmlspecialchars($tarea['prioridad']); ?></td> <!-- Mostrar prioridad -->
+                            <td><?php echo htmlspecialchars($tarea['prioridad']); ?></td> 
                             <td><?php echo htmlspecialchars($tarea['fecha_fin']); ?></td>
-                            <td><?php echo htmlspecialchars($tarea['estatus']); ?></td> <!-- Mostrar estatus -->
+                            <td><?php echo htmlspecialchars($tarea['estatus']); ?></td> 
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
