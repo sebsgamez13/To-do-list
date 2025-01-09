@@ -43,6 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tarea</title>
+    <!-- Incluir Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
 
 <div class="container mt-4">
     <h2>Editar Tarea</h2>
@@ -77,9 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="estatus">Estatus</label>
             <select class="form-control" id="estatus" name="estatus" required>
                 <option value="pendiente" <?php echo $tarea['estatus'] == 'pendiente' ? 'selected' : ''; ?>>Pendiente</option>
-                <option value="completa" <?php echo $tarea['estatus'] == 'completa' ? 'selected' : ''; ?>>Completa</option>
+                <option value="completa" <?php echo $tarea['estatus'] == 'completa' ? 'selected' : ''; ?>>Completada</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar Tarea</button>
     </form>
 </div>
+
+</body>
+</html>
